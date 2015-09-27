@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}SUVA - About This Site{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+  <p class="text-center">Site built using <a href="http://flask.pocoo.org/">Flask</a> and <a href="http://getbootstrap.com/">Bootstrap</a>.
+<br><br>
+  Many thanks to <a href="http://miguelgrinberg.com/">Miguel Grinberg</a>, <a href="http://charlesleifer.com/">Charles Leifer</a>,
+  <a href="http://www.reddit.com/r/flask">the Flask subreddit</a> and all the other Flask enthusiasts that have shared their knowledge.</p>
+  <br><br>
+  <p class="text-center">For all site-related issues please contact the site administrator: <a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+<br><br>
+</div>
+{% endblock %}

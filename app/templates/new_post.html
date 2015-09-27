@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}SUVA - new post{% endblock %}
+
+{% block page_content %}
+<div>
+    {% if current_user.is_administrator() %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

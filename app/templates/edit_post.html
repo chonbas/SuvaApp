@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}SUVA - edit post{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Edit Post</h1>
+</div>
+<div>
+    <h3>tags</h3>
+    {% for tag in tags %}
+    <a href="{{ url_for('.untag', post_id=post, tag_name=tag.name) }}"><span class="label label-danger">{{tag.name}}</span></a>
+    {% endfor %}<br><br>
+    {{ wtf.quick_form(form) }}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

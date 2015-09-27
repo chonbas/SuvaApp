@@ -1,0 +1,36 @@
+<ul class="comments">
+    {% for comment in comments %}
+    <li class="comment">
+            <div class="comment-date">{{ moment(comment.timestamp).fromNow() }}</div>
+            <div class="comment-author">
+              {% if comment.author_url %}
+              <a href="{{ comment.author_url }}">{{ comment.author }}</a>
+              {% else %}
+              {{ comment.author }}
+              {% endif %}
+            </div>
+            <div class="comment-body">
+                {% if comment.disabled %}
+                <p></p><i>This comment has been disabled by a moderator.</i></p>
+                {% endif %}
+                {% if not comment.disabled %}
+                    {% if comment.body_html %}
+                        {{ comment.body_html | safe }}
+                    {% else %}
+                        {{ comment.body }}
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% if current_user.is_administrator() %}
+                <br>
+                <a class="btn btn-default btn-xs" href="{{ url_for('main.toggle_comment', comment_id=comment.id, post_id=comment.post_id) }}">
+                {% if comment.disabled %}
+                enable
+                {% else %}
+                disable
+                {% endif %}
+                </a>
+            {% endif %}
+    </li>
+    {% endfor %}
+</ul>

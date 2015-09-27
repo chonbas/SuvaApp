@@ -1,0 +1,4 @@
+{% set tags=post.tags %}
+{% for tag in tags %}
+    <a href="{{ url_for('.sort', tag_name=tag.name)  }}"><span class="label label-warning">{{tag.name}}</span></a>
+{% endfor %}

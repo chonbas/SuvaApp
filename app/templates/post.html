@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% import "_macros.html" as macros %}
+
+{% block title %}SUVA - post{% endblock %}
+
+{% block page_content %}
+{% include '_posts.html' %}
+<h3 id="comments">comments</h3>
+{% include '_comments.html' %}
+<div class="comment-form">
+<br><br><br>
+{% if post.comments_enabled %}
+  <h4>post your comment</h4><br>
+  {{ wtf.quick_form(form) }}
+{% else %}
+  <h5>Comments for this post have been disabled by the admin.</h5>
+{% endif %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.post', fragment='#comments', id=posts[0].id) }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

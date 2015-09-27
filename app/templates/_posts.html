@@ -11,7 +11,7 @@
           <br>
           <div class="post-body">{{ post.body | safe}}</div>
             <div class="post-footer">
-                {% if current_user.is_administrator() %}
+                {% if current_user.is_administrator %}
                 <a href="{{ url_for('.edit', id=post.id) }}">
                     <span class="label label-danger">edit [admin]</span>
                 </a>

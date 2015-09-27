@@ -28,10 +28,10 @@
                 <li><a href="{{ url_for('main.index') }}">Home</a></li>
                 <li><a href="{{ url_for('main.about') }}">About</a></li>
                 <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
-                {% if current_user.is_administrator() %}
+                {% if current_user.is_administrator %}
                 <li><a href="{{ url_for('main.newpost') }}">New Post</a></li>
                 {% endif %}
-                {% if current_user.is_authenticated() %}
+                {% if current_user.is_authenticated %}
                 <li class="dropdown" id="lefty">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Account <b class="caret"></b>

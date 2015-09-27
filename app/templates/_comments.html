@@ -21,7 +21,7 @@
                     {% endif %}
                 {% endif %}
             </div>
-            {% if current_user.is_administrator() %}
+            {% if current_user.is_administrator %}
                 <br>
                 <a class="btn btn-default btn-xs" href="{{ url_for('main.toggle_comment', comment_id=comment.id, post_id=comment.post_id) }}">
                 {% if comment.disabled %}

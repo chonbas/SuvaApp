@@ -11,8 +11,6 @@ from .forms import LoginForm, RegistrationForm, ChangePasswordForm,\
 @auth.before_app_request
 def before_request():
     g.search_form = SearchForm()
-    if current_user.is_authenticated():
-        current_user.ping()
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():

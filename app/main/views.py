@@ -83,8 +83,7 @@ def contact():
 
 @main.route('/about_site')
 def about_site():
-    user = User.query.filter_by(email=current_app.config['BLOG_ADMIN']).first_or_404()
-    return render_template('aboutsite.html', user=user)
+    return render_template('aboutsite.html')
 
 @main.route('/edit-profile', methods=['GET', 'POST'])
 @login_required

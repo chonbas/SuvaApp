@@ -31,6 +31,12 @@ class ProductionConfig(Config):
     def init_app(cls, app):
         Config.init_app(app)
 
+        import logging
+        from logging.handlers import SysLogHandler
+        syslog_handler = SysLogHandler()
+        syslog_handler.setLevel(logging.WARNING)
+        app.logger.addHandler(syslog_handler)
+
 config = {
     'development': DevelopmentConfig,
     'production': ProductionConfig,
